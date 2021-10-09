@@ -11,10 +11,13 @@ TEST_CASE("Verify GC content"){
 	REQUIRE(get_gc_content("CGCTATAG")==.5);
 }
 
-/*TEST_CASE("Verify Reverse String"){
-	REQUIRE(get_reverse_string("AGCTATAG") == "GATATCGA");
-	REQUIRE(get_reverse_string("CGCTATAG" )== "GATATCGC");
-}*/
+TEST_CASE("Verify Reverse String"){
+	std::string dna1 = "AGCTATAG";
+	std::string dna2 = "CGCTATAG";
+
+	REQUIRE(get_reverse_string(dna1) == "GATATCGA");
+	REQUIRE(get_reverse_string(dna2)== "GATATCGC");
+}
 
 
 TEST_CASE("Verify dna complement"){
