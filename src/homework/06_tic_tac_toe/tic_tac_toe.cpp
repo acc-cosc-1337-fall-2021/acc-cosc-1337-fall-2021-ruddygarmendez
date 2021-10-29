@@ -8,10 +8,55 @@
 using std::cout;
 using std::cin;
 
+std::string TicTacToe::get_winner(){
+
+    return winner;
+}
+
+void TicTacToe::set_winner(){
+
+    if (TicTacToe::player=="X"){
+        TicTacToe::winner="O";
+    }
+    else{
+        TicTacToe::winner="X";
+    }
+    return;
+
+}
 
 bool TicTacToe::game_over(){
-   
-    return check_board_full();
+
+    if (TicTacToe::check_column_win()==true){
+        set_winner();
+        cout<<"GAME OVER"<<"\n";
+        return true;
+    }
+    else if (TicTacToe::check_row_win()==true){
+        set_winner();
+        cout<<"GAME OVER"<<"\n";
+        return true;
+    }
+    else if (TicTacToe::check_diagnol_win()==true){
+        set_winner();
+        cout<<"GAME OVER"<<"\n";
+        return true;
+    }
+
+    else if (TicTacToe::check_board_full()==true){
+        TicTacToe::winner="C";
+        cout<<"GAME OVER"<<"\n";
+        return true;
+    }
+
+    else if (TicTacToe::check_board_full()==false){
+        return false;    
+    }
+
+
+
+    
+
 }
 
 void TicTacToe::start_game (std::string first_player){
@@ -62,7 +107,7 @@ bool TicTacToe::check_board_full(){
         return false;
     }
     else {
-        cout<<"GAME OVER"<<"\n";
+        cout<<"TIE"<<"\n";
         clear_board();   
         return true;
     }
@@ -70,7 +115,77 @@ bool TicTacToe::check_board_full(){
 
 void TicTacToe::clear_board(){
 
-    std::vector<std::string> pegs(9," ");
+    for (int i=0; i<=8; i++){
+        TicTacToe::pegs[i]=" ";
+    }
+
 }
 
+bool TicTacToe::check_column_win(){
+
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[3]=="X" && TicTacToe::pegs[6]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[3]=="O" && TicTacToe::pegs[6]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[1]=="O" && TicTacToe::pegs[4]=="O" && TicTacToe::pegs[7]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[1]=="X" && TicTacToe::pegs[4]=="X" && TicTacToe::pegs[7]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="O" && TicTacToe::pegs[5]=="O" && TicTacToe::pegs[8]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="X" && TicTacToe::pegs[5]=="X" && TicTacToe::pegs[8]=="X"){
+        return true;
+    }
+    else return false;
+
+}
+
+
+
+
+bool TicTacToe::check_row_win(){
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[1]=="X" && TicTacToe::pegs[2]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[1]=="O" && TicTacToe::pegs[2]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="O" && TicTacToe::pegs[4]=="O" && TicTacToe::pegs[5]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="X" && TicTacToe::pegs[4]=="X" && TicTacToe::pegs[5]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[6]=="O" && TicTacToe::pegs[7]=="O" && TicTacToe::pegs[8]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[6]=="X" && TicTacToe::pegs[6]=="X" && TicTacToe::pegs[8]=="X"){
+        return true;
+    }
+    else return false;
+}
+
+
+
+
+bool TicTacToe::check_diagnol_win(){
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[4]=="X" && TicTacToe::pegs[8]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[4]=="O" && TicTacToe::pegs[8]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="O" && TicTacToe::pegs[4]=="O" && TicTacToe::pegs[6]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="X" && TicTacToe::pegs[4]=="X" && TicTacToe::pegs[6]=="X"){
+        return true;
+    }
+        else return false;
+}
 

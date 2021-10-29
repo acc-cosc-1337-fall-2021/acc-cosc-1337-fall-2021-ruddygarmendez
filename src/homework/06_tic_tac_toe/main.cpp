@@ -7,6 +7,7 @@ using std::cout;
 using std::cin;
 
 std::string player;
+std::string winner;
 
 
 int main() 
@@ -31,6 +32,9 @@ int main()
 				game.mark_board(position);
 				game.display_board();
 				}
+
+			cout<<"Winner is "<<game.get_winner()<<"\n";
+			cout<<"Select X or O to play again"<<"\n";
 		}
 
 		else if(player_choice=="Q"){
