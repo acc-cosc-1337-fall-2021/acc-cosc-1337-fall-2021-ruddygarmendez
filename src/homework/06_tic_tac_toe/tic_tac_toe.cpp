@@ -49,14 +49,7 @@ bool TicTacToe::game_over(){
         return true;
     }
 
-    else if (TicTacToe::check_board_full()==false){
-        return false;    
-    }
-
-
-
-    
-
+    return false;    
 }
 
 void TicTacToe::start_game (std::string first_player){
@@ -77,12 +70,24 @@ std::string TicTacToe::get_player()const {
     return player;
 }
 
-void TicTacToe::display_board() const{
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game2){
+        out<<game2.pegs[0]<<"|"<<game2.pegs[1]<<"|"<<game2.pegs[2]<<"\n";
+        out<<game2.pegs[3]<<"|"<<game2.pegs[4]<<"|"<<game2.pegs[5]<<"\n";
+        out<<game2.pegs[6]<<"|"<<game2.pegs[7]<<"|"<<game2.pegs[8]<<"\n";
 
-        cout<<TicTacToe::pegs[0]<<"|"<<TicTacToe::pegs[1]<<"|"<<TicTacToe::pegs[2]<<"\n";
-        cout<<TicTacToe::pegs[3]<<"|"<<TicTacToe::pegs[4]<<"|"<<TicTacToe::pegs[5]<<"\n";
-        cout<<TicTacToe::pegs[6]<<"|"<<TicTacToe::pegs[7]<<"|"<<TicTacToe::pegs[8]<<"\n";
+        return out;
 }
+
+
+std::istream& operator>>(std::istream& in, TicTacToe& game2){
+    int position;
+	cout<<"Enter a position from 1 to 9"<<"\n";
+    in>>position;
+    game2.mark_board(position);
+				
+    return in;
+}
+
 
 void TicTacToe::set_next_player(){
     if (TicTacToe::player=="X"){
