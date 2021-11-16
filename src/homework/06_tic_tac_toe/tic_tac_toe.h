@@ -20,6 +20,11 @@ public:
 
     friend std::istream& operator>>(std::istream& in, TicTacToe& game2);
 
+    TicTacToe();
+    TicTacToe(int size) : pegs(size*size, ""){
+
+    };
+
 
 private:
     void set_next_player();
@@ -27,11 +32,16 @@ private:
     void clear_board();
     std::string player;
     std::string winner;
-    std::vector<std::string> pegs{9," "};
-    bool check_column_win();
-    bool check_row_win();
-    bool check_diagnol_win();
+    //std::vector<std::string> pegs{9," "};
+
     void set_winner();
+
+
+protected:
+    std::vector<std::string> pegs;
+    bool virtual check_column_win();
+    bool virtual check_row_win();
+    bool virtual check_diagnol_win();
   
 };
 

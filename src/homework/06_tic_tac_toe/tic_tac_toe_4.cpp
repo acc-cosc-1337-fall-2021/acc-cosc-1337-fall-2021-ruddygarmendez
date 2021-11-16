@@ -34,3 +34,97 @@ Win diagonally
 12,13,14, 15
 
 */
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using std::cout;
+using std::cin;
+
+
+
+bool TicTacToe4::check_column_win(){
+
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[4]=="X" && TicTacToe::pegs[8]=="X" && TicTacToe::pegs[12]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[4]=="O" && TicTacToe::pegs[8]=="O" && TicTacToe::pegs[12]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[1]=="O" && TicTacToe::pegs[5]=="O" && TicTacToe::pegs[9]=="O" && TicTacToe::pegs[13]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[1]=="X" && TicTacToe::pegs[5]=="X" && TicTacToe::pegs[9]=="X" && TicTacToe::pegs[13]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="O" && TicTacToe::pegs[6]=="O" && TicTacToe::pegs[10]=="O" && TicTacToe::pegs[14]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[2]=="X" && TicTacToe::pegs[6]=="X" && TicTacToe::pegs[10]=="X" && TicTacToe::pegs[14]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="O" && TicTacToe::pegs[7]=="O" && TicTacToe::pegs[11]=="O" && TicTacToe::pegs[15]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="X" && TicTacToe::pegs[7]=="X" && TicTacToe::pegs[11]=="X" && TicTacToe::pegs[15]=="X"){
+        return true;
+    }
+    
+    else return false;
+
+}
+
+
+
+
+bool TicTacToe4::check_row_win(){
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[1]=="X" && TicTacToe::pegs[2]=="X" && TicTacToe::pegs[3]=="X" ){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[1]=="O" && TicTacToe::pegs[2]=="O" && TicTacToe::pegs[3]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[4]=="O" && TicTacToe::pegs[5]=="O" && TicTacToe::pegs[6]=="O" && TicTacToe::pegs[7]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[4]=="X" && TicTacToe::pegs[5]=="X" && TicTacToe::pegs[6]=="X" && TicTacToe::pegs[7]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[8]=="O" && TicTacToe::pegs[9]=="O" && TicTacToe::pegs[10]=="O" && TicTacToe::pegs[11]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[8]=="X" && TicTacToe::pegs[9]=="X" && TicTacToe::pegs[10]=="X" && TicTacToe::pegs[11]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[12]=="O" && TicTacToe::pegs[13]=="O" && TicTacToe::pegs[14]=="O" && TicTacToe::pegs[15]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[12]=="X" && TicTacToe::pegs[13]=="X" && TicTacToe::pegs[14]=="X" && TicTacToe::pegs[15]=="X"){
+        return true;
+    }
+
+
+    else return false;
+}
+
+
+
+
+bool TicTacToe4::check_diagnol_win(){
+    if (TicTacToe::pegs[0]=="X" && TicTacToe::pegs[5]=="X" && TicTacToe::pegs[10]=="X" && TicTacToe::pegs[15]=="X"){
+        return true;
+    }
+    else if (TicTacToe::pegs[0]=="O" && TicTacToe::pegs[5]=="O" && TicTacToe::pegs[10]=="O" && TicTacToe::pegs[15]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="O" && TicTacToe::pegs[6]=="O" && TicTacToe::pegs[9]=="O" && TicTacToe::pegs[12]=="O"){
+        return true;
+    }
+    else if (TicTacToe::pegs[3]=="X" && TicTacToe::pegs[6]=="X" && TicTacToe::pegs[9]=="X" && TicTacToe::pegs[12]=="X"){
+        return true;
+    }
+ 
+    else return false;
+}

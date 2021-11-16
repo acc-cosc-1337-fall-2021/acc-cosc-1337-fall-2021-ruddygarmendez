@@ -3,18 +3,20 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
 
 using std::cout;
 using std::cin;
+using std::unique_ptr;
 
-
-void TicTacToeManager::save_game(TicTacToe b){
+void TicTacToeManager::save_game(unique_ptr<TicTacToe> &b){
     
-    games.push_back(b);
-    update_winner_count(b.get_winner());
+    update_winner_count(b->get_winner());
 
+    games.push_back(move(b));
+    
 };
 
 
@@ -30,9 +32,9 @@ void TicTacToeManager::get_winner_total(int& x, int& o, int& t){
 
 std::ostream& operator<<(std::ostream& out, const TicTacToeManager& manager){
 
-    for (auto i: manager.games){
+    for (const auto& i: manager.games){
 
-        out<<i<<"\n";
+        out<<*i<<"\n";
         
     }
 
