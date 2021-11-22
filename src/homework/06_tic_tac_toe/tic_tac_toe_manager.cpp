@@ -54,7 +54,24 @@ void TicTacToeManager::update_winner_count(std::string winner){
     }
 
 
+
 };
+
+TicTacToeManager::TicTacToeManager(TicTacToeData d) : data(d) {
+
+    games = data.get_games();
+
+    for (auto& game : games){
+        update_winner_count(game->get_winner());
+    }
+
+}
+
+
+  TicTacToeManager::~TicTacToeManager(){
+      data.save_games(games);
+
+  }
 
 
 

@@ -1,5 +1,6 @@
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_data.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include <iostream>
@@ -20,7 +21,8 @@ std::string winner;
 int main() 
 {
 	unique_ptr <TicTacToe> game;
-	TicTacToeManager gamesession;
+	TicTacToeData data;
+	TicTacToeManager gamesession(data);
 
 	cout<<"Welcome to Tic Tac Toe"<<"\n";
 	std::string player_choice;

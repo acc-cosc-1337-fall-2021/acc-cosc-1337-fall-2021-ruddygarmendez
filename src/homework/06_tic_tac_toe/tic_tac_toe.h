@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h>
 
 #ifndef tictactoe_h
 #define tictactoe_h
@@ -15,15 +16,17 @@ public:
     void mark_board(int position);
     std::string get_player() const;
     std::string get_winner();
-
     friend std::ostream& operator<<(std::ostream& out, const TicTacToe& game2);
-
     friend std::istream& operator>>(std::istream& in, TicTacToe& game2);
 
-    TicTacToe();
-    TicTacToe(int size) : pegs(size*size, ""){
+    std::vector<std::string> get_pegs()const{return pegs;}
 
-    };
+
+
+    TicTacToe();
+    TicTacToe(int size) : pegs(size*size, ""){}
+
+    TicTacToe(std::vector<std::string> p, std::string win) : pegs(p), winner(win){}
 
 
 private:
